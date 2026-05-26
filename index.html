@@ -1,405 +1,543 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GOMA 아트클래스 | 송도 드로잉 중점 프리미엄 미술학원</title>
-  <meta name="description" content="뉴욕 3대 미대 출신 원장 직강. 송도 드로잉 중점 프리미엄 미술학원 GOMA 아트클래스. 일반미술·영어미술·유학 포트폴리오 소수정예 수업." />
-  <meta property="og:title" content="GOMA 아트클래스 | 송도 프리미엄 미술학원" />
-  <meta property="og:description" content="드로잉 중점 · 소수정예 · 뉴욕 3대 미대 출신 원장 직강" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GOMA 아트클래스 | 송도 드로잉 중점 프리미엄 미술학원</title>
+<meta name="description" content="뉴욕 3대 미대 출신 원장 직강. 송도 드로잉 중점 프리미엄 미술학원 GOMA 아트클래스. 일반미술·영어미술·유학 포트폴리오 소수정예 수업." />
+<meta property="og:title" content="GOMA 아트클래스 | 송도 프리미엄 미술학원" />
+<meta property="og:description" content="드로잉 중점 · 소수정예 · 뉴욕 3대 미대 출신 원장 직강" />
+<meta property="og:type" content="website" />
+<style>
+:root{
+  --ink:#1a1714;--ink-soft:#4a443d;--paper:#f7f3ec;--paper-2:#efe8dc;
+  --cream:#fffdf8;--gold:#b08d57;--gold-deep:#8c6c3c;--line:#e3d9c8;--max:1180px;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* Header */
+.site-header{position:fixed;top:0;left:0;width:100%;z-index:200;transition:background .35s,box-shadow .35s,padding .35s;padding:18px 0}
+.site-header.scrolled{background:rgba(255,253,248,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.header-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.5rem;letter-spacing:.04em;color:var(--ink);line-height:1;display:flex;flex-direction:column}
+.logo span{font-family:var(--sans);font-size:.6rem;letter-spacing:.45em;color:var(--gold);font-weight:500;margin-top:3px}
+.site-header:not(.scrolled) .logo,.site-header:not(.scrolled) .nav a,.site-header:not(.scrolled) .header-cta{color:#fff}
+.site-header:not(.scrolled) .logo span{color:#e8d4b3}
+.nav{display:flex;gap:30px}
+.nav a{font-size:.9rem;font-weight:500;position:relative;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--gold);transition:width .25s}
+.nav a:hover{color:var(--gold)}
+.nav a:hover::after{width:100%}
+.header-cta{font-size:.85rem;font-weight:700;border:1px solid currentColor;padding:8px 18px;border-radius:30px;transition:all .25s}
+.header-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff!important}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.nav-toggle span{width:24px;height:2px;background:#fff;transition:.3s}
+.site-header.scrolled .nav-toggle span{background:var(--ink)}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(120% 90% at 80% 10%,rgba(176,141,87,.45),transparent 60%),linear-gradient(160deg,#2a241d 0%,#3a3026 45%,#241f19 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.018) 0 2px,transparent 2px 22px);mix-blend-mode:overlay}
+.hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 24px;width:100%}
+.hero-eyebrow{font-size:.8rem;letter-spacing:.5em;color:#e8d4b3;margin-bottom:24px;font-weight:500}
+.hero-title{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,5.4vw,4rem);line-height:1.3;letter-spacing:-.01em;margin-bottom:26px;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+.hero-sub{font-size:clamp(.95rem,1.6vw,1.12rem);color:#e9e2d6;max-width:640px;margin-bottom:38px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;letter-spacing:.35em;color:#cdbfa6}
+.hero-scroll::after{content:"";display:block;width:1px;height:34px;background:#cdbfa6;margin:10px auto 0;animation:scrollPulse 2s infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;font-weight:700;padding:14px 28px;border-radius:40px;transition:transform .2s,box-shadow .25s,background .25s,color .25s;cursor:pointer}
+.btn-primary{background:var(--gold);color:#fff;box-shadow:0 8px 24px rgba(176,141,87,.4)}
+.btn-primary:hover{background:var(--gold-deep);transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+.btn-line{background:#03c75a;color:#fff}
+.btn-line:hover{background:#02af4f;transform:translateY(-2px)}
+
+/* Marquee */
+.marquee{background:var(--ink);color:#cdbfa6;overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 22s linear infinite;width:max-content}
+.marquee-track span{font-family:var(--serif);font-style:italic;font-size:1.3rem;padding:0 26px}
+.marquee-track i{color:var(--gold);align-self:center;font-style:normal}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Sections */
+.section{padding:96px 0}
+.section-head{max-width:720px;margin:0 auto 56px;text-align:center}
+.eyebrow{font-size:.75rem;letter-spacing:.4em;color:var(--gold);font-weight:600;margin-bottom:16px}
+.eyebrow.light{color:#e8d4b3}
+.section-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.35;letter-spacing:-.01em}
+.lead{margin-top:18px;color:var(--ink-soft);font-size:1.05rem}
+.lead.light{color:#e9e2d6}
+
+/* About */
+.about{background:var(--cream)}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.value-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:34px 26px;transition:transform .3s,box-shadow .3s}
+.value-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(26,23,20,.08)}
+.value-num{font-family:var(--serif);font-size:2rem;color:var(--gold);font-style:italic}
+.value-card h3{font-family:var(--serif);font-size:1.2rem;margin:14px 0 10px}
+.value-card p{font-size:.93rem;color:var(--ink-soft)}
+
+/* Director */
+.director{background:var(--paper-2)}
+.director-inner{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.photo-frame{position:relative;aspect-ratio:3/4;border-radius:14px;background:linear-gradient(150deg,#3a3026,#241f19);border:1px solid var(--line);box-shadow:0 24px 60px rgba(26,23,20,.18);display:flex;align-items:flex-end;padding:22px;overflow:hidden}
+.photo-frame::before{content:"GOMA";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:4rem;color:rgba(176,141,87,.22);letter-spacing:.05em}
+.photo-label{position:relative;color:#e8d4b3;font-size:.8rem;letter-spacing:.25em;border:1px solid rgba(232,212,179,.4);padding:6px 14px;border-radius:30px}
+.director-text h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.4;margin:14px 0 24px}
+.director-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.director-list li{position:relative;padding-left:24px;color:var(--ink-soft)}
+.director-list li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.director-list strong{color:var(--ink);font-weight:600}
+
+/* Tracks */
+.track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.track-card{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:36px 30px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.track-card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(26,23,20,.1)}
+.track-card.featured{background:var(--ink);border-color:var(--ink);color:#efe8dc}
+.track-card.featured h3{color:#fff}
+.track-card.featured p{color:#cfc6b6}
+.track-card.featured .track-time{color:#e8d4b3}
+.track-card.featured ul li{color:#d9d0bf}
+.track-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.track-tag{font-size:.75rem;font-weight:700;letter-spacing:.1em;background:var(--gold);color:#fff;padding:5px 12px;border-radius:20px}
+.track-time{font-size:.82rem;color:var(--gold-deep);font-weight:600}
+.track-card h3{font-family:var(--serif);font-size:1.45rem;margin-bottom:12px}
+.track-card p{font-size:.94rem;color:var(--ink-soft);margin-bottom:20px;flex-grow:1}
+.track-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:18px}
+.track-card.featured ul{border-color:rgba(255,255,255,.15)}
+.track-card ul li{position:relative;padding-left:20px;font-size:.9rem;color:var(--ink-soft)}
+.track-card ul li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* System */
+.system{background:var(--cream)}
+.system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.system-item{padding:30px;border-left:2px solid var(--gold);background:var(--paper);border-radius:0 14px 14px 0}
+.system-item h3{font-family:var(--serif);font-size:1.25rem;margin-bottom:10px}
+.system-item p{font-size:.93rem;color:var(--ink-soft)}
+
+/* Curriculum */
+.curri-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px}
+.curri-card{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:30px 24px;transition:transform .3s}
+.curri-card:hover{transform:translateY(-5px)}
+.curri-no{font-size:.75rem;letter-spacing:.2em;color:var(--gold);font-weight:600}
+.curri-card h3{font-family:var(--serif);font-size:1.2rem;margin:12px 0 10px}
+.curri-card p{font-size:.9rem;color:var(--ink-soft)}
+.artist-strip{background:var(--ink);border-radius:18px;padding:34px 36px;text-align:center}
+.artist-strip-label{color:#e8d4b3;font-size:.8rem;letter-spacing:.2em;margin-bottom:18px}
+.artist-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.artist-tags span{font-size:.85rem;color:#efe8dc;border:1px solid rgba(232,212,179,.3);padding:7px 16px;border-radius:30px;transition:.25s}
+.artist-tags span:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+
+/* Techniques */
+.techniques{background:var(--paper-2)}
+.tech-columns{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:880px;margin:0 auto}
+.tech-col{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:34px}
+.tech-col h3{font-family:var(--serif);font-size:1.3rem;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.tech-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.tech-col li{position:relative;padding-left:22px;color:var(--ink-soft);font-size:.95rem}
+.tech-col li::before{content:"\2726";position:absolute;left:0;color:var(--gold);font-size:.8rem;top:2px}
+
+/* Results */
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.result-card{text-align:center;background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:46px 28px;transition:transform .3s,box-shadow .3s}
+.result-card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(26,23,20,.1)}
+.result-card h3{font-family:var(--serif);font-weight:700;font-size:1.35rem;line-height:1.35;margin-bottom:14px;color:var(--gold-deep)}
+.result-card p{font-size:.95rem;color:var(--ink-soft);font-weight:500}
+
+/* Target */
+.target{background:var(--cream)}
+.target-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.target-ages{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.age-item{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center}
+.age-item span{display:block;font-size:.82rem;color:var(--gold-deep);letter-spacing:.1em;margin-bottom:6px}
+.age-item strong{font-family:var(--serif);font-size:1.3rem;font-weight:700}
+.target-schools{background:var(--ink);border-radius:18px;padding:34px;text-align:center}
+
+/* Trial */
+.trial{background:radial-gradient(120% 90% at 20% 10%,rgba(176,141,87,.4),transparent 55%),linear-gradient(160deg,#2a241d,#241f19);color:#fff}
+.trial-inner{max-width:760px}
+.trial-text h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,3.6vw,2.6rem);margin:14px 0 22px}
+.trial-list{list-style:none;display:flex;flex-direction:column;gap:13px;margin:28px 0 36px}
+.trial-list li{position:relative;padding-left:26px;color:#e9e2d6}
+.trial-list li::before{content:"\2713";position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* Footer */
+.site-footer{background:#171410;color:#cfc6b6;padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:46px}
+.logo-light{color:#fff}
+.footer-brand p{margin-top:14px;font-size:.9rem;color:#9c9384}
+.footer-info dl{display:grid;grid-template-columns:90px 1fr;gap:10px 18px;margin-bottom:24px}
+.footer-info dt{color:var(--gold);font-size:.85rem;font-weight:600}
+.footer-info dd{font-size:.92rem;color:#cfc6b6}
+.footer-info dd a:hover{color:#fff}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a{font-size:.85rem;border:1px solid rgba(255,255,255,.18);padding:8px 16px;border-radius:30px;transition:.25s}
+.footer-links a:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.footer-copy{margin-top:44px;padding:20px 0;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:.8rem;color:#7d756a}
+
+/* Right floating banners */
+.floating-side{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:300;display:flex;flex-direction:column;gap:10px}
+.float-btn{display:flex;align-items:center;width:54px;height:54px;border-radius:50%;background:var(--cream);box-shadow:0 6px 20px rgba(26,23,20,.18);border:1px solid var(--line);overflow:hidden;transition:width .3s,border-radius .3s,background .25s;position:relative}
+.float-ico{min-width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1.2rem}
+.float-label{white-space:nowrap;font-size:.82rem;font-weight:600;padding-right:18px;opacity:0;transition:opacity .2s;display:flex;flex-direction:column;line-height:1.2}
+.float-label small{font-size:.7rem;font-weight:400;color:var(--gold-deep)}
+.float-btn:hover{width:172px;border-radius:30px}
+.float-btn:hover .float-label{opacity:1}
+.float-place .float-ico{color:#03c75a}
+.float-place:hover{background:#03c75a}
+.float-place:hover .float-ico,.float-place:hover .float-label{color:#fff}
+.float-blog .float-ico{color:#2db400}
+.float-blog:hover{background:#2db400}
+.float-blog:hover .float-ico,.float-blog:hover .float-label{color:#fff}
+.float-insta .float-ico{color:#c13584}
+.float-insta:hover{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}
+.float-insta:hover .float-ico,.float-insta:hover .float-label{color:#fff}
+.float-tel .float-ico{color:var(--gold-deep)}
+.float-tel:hover{background:var(--gold)}
+.float-tel:hover .float-ico,.float-tel:hover .float-label,.float-tel:hover .float-label small{color:#fff}
+
+/* Bottom floating banner */
+.floating-bottom{position:fixed;left:0;bottom:0;width:100%;z-index:250;background:rgba(26,23,20,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(176,141,87,.4);transform:translateY(110%);transition:transform .4s cubic-bezier(.16,.84,.44,1);box-shadow:0 -8px 30px rgba(0,0,0,.25)}
+.floating-bottom.show{transform:translateY(0)}
+.fb-inner{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.fb-text{color:#efe8dc;font-size:1rem}
+.fb-text strong{color:#fff;font-weight:700}
+.fb-call{display:inline-flex;align-items:center;gap:9px;flex-shrink:0;background:var(--gold);color:#fff;font-weight:700;font-size:1rem;padding:13px 30px;border-radius:40px;transition:transform .2s,background .25s;box-shadow:0 6px 18px rgba(176,141,87,.4)}
+.fb-call:hover{background:var(--gold-deep);transform:translateY(-2px)}
+
+/* Responsive */
+@media (max-width:980px){
+  .director-inner,.target-wrap,.footer-inner{grid-template-columns:1fr;gap:34px}
+  .value-grid,.curri-grid{grid-template-columns:repeat(2,1fr)}
+  .track-grid,.system-grid,.result-grid{grid-template-columns:1fr}
+  .photo-frame{max-width:340px;margin:0 auto}
+}
+@media (max-width:760px){
+  .nav,.header-cta{display:none}
+  .nav-toggle{display:flex}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--cream);padding:20px 24px;gap:18px;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+  .nav.open a{color:var(--ink)!important}
+  .section{padding:70px 0}
+  .tech-columns{grid-template-columns:1fr}
+  .floating-side{right:12px;gap:8px}
+  .float-btn,.float-ico{width:46px;height:46px;min-width:46px}
+  .float-btn:hover{width:46px}
+  .float-btn:hover .float-label{display:none}
+  .fb-text{font-size:.88rem}
+  .fb-call{padding:11px 20px;font-size:.9rem}
+  .footer-info dl{grid-template-columns:70px 1fr}
+}
+@media (max-width:430px){
+  .value-grid,.curri-grid{grid-template-columns:1fr}
+  .fb-inner{padding:10px 14px;gap:10px}
+  .fb-text{font-size:.8rem}
+}
+</style>
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a href="#hero" class="logo">GOMA<span>ART CLASS</span></a>
-      <nav class="nav" id="nav">
-        <a href="#about">브랜드 철학</a>
-        <a href="#director">원장 소개</a>
-        <a href="#tracks">수업 트랙</a>
-        <a href="#curriculum">커리큘럼</a>
-        <a href="#results">합격 실적</a>
-        <a href="#trial">체험 안내</a>
-      </nav>
-      <a href="tel:01073736072" class="header-cta">상담 문의</a>
-      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#hero" class="logo">GOMA<span>ART CLASS</span></a>
+    <nav class="nav" id="nav">
+      <a href="#about">브랜드 철학</a>
+      <a href="#director">원장 소개</a>
+      <a href="#tracks">수업 트랙</a>
+      <a href="#curriculum">커리큘럼</a>
+      <a href="#results">합격 실적</a>
+      <a href="#trial">체험 안내</a>
+    </nav>
+    <a href="tel:01073736072" class="header-cta">상담 문의</a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">SONGDO · DRAWING ATELIER</p>
-      <h1 class="hero-title">아이가 작품의 주체가 되는<br />드로잉 중점 미술 클래스</h1>
-      <p class="hero-sub">
-        만들기·놀이 미술이 아닌, 관찰하고 사고하며 자신만의 시각으로 재해석하는 곳.<br />
-        뉴욕 3대 미대 출신 원장이 직접 이끄는 갤러리 같은 프리미엄 스튜디오입니다.
-      </p>
-      <div class="hero-actions">
-        <a href="#trial" class="btn btn-primary">원데이클래스 신청</a>
-        <a href="#tracks" class="btn btn-ghost">수업 트랙 보기</a>
-      </div>
-    </div>
-    <div class="hero-scroll">SCROLL</div>
-  </section>
-
-  <!-- ===== Marquee ===== -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>DRAWING</span><i>•</i><span>OBSERVATION</span><i>•</i><span>CREATIVITY</span><i>•</i><span>RE-INTERPRETATION</span><i>•</i>
-      <span>DRAWING</span><i>•</i><span>OBSERVATION</span><i>•</i><span>CREATIVITY</span><i>•</i><span>RE-INTERPRETATION</span><i>•</i>
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">SONGDO · DRAWING ATELIER</p>
+    <h1 class="hero-title">아이가 작품의 주체가 되는<br />드로잉 중점 미술 클래스</h1>
+    <p class="hero-sub">만들기·놀이 미술이 아닌, 관찰하고 사고하며 자신만의 시각으로 재해석하는 곳.<br />뉴욕 3대 미대 출신 원장이 직접 이끄는 갤러리 같은 프리미엄 스튜디오입니다.</p>
+    <div class="hero-actions">
+      <a href="#trial" class="btn btn-primary">원데이클래스 신청</a>
+      <a href="#tracks" class="btn btn-ghost">수업 트랙 보기</a>
     </div>
   </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
 
-  <!-- ===== About / Philosophy ===== -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">BRAND PHILOSOPHY</p>
-        <h2>결과물보다 '과정'을 중시합니다</h2>
-        <p class="lead">관찰 → 이해 → 재해석 → 표현 → 발표. GOMA는 정답을 강요하지 않고, 아이의 개성과 자유로운 표현을 존중합니다.</p>
-      </div>
-      <div class="value-grid">
-        <article class="value-card">
-          <span class="value-num">01</span>
-          <h3>사고력 중심</h3>
-          <p>단순 따라 그리기(모작)를 지양하고, 작가의 철학을 이해한 뒤 나만의 시각으로 재해석합니다.</p>
-        </article>
-        <article class="value-card">
-          <span class="value-num">02</span>
-          <h3>창의력 존중</h3>
-          <p>정답을 강요하지 않습니다. 아이가 작품의 주체가 되어 자유롭게 표현하도록 이끕니다.</p>
-        </article>
-        <article class="value-card">
-          <span class="value-num">03</span>
-          <h3>관찰의 힘</h3>
-          <p>드로잉을 기반으로 대상을 관찰하고 이해하는 힘을 길러 깊이 있는 작품을 완성합니다.</p>
-        </article>
-        <article class="value-card">
-          <span class="value-num">04</span>
-          <h3>프리미엄 공간</h3>
-          <p>갤러리 같은 아뜰리에식 스튜디오에서 몰입도 높은 수업을 경험합니다.</p>
-        </article>
+<div class="marquee">
+  <div class="marquee-track">
+    <span>DRAWING</span><i>•</i><span>OBSERVATION</span><i>•</i><span>CREATIVITY</span><i>•</i><span>RE-INTERPRETATION</span><i>•</i>
+    <span>DRAWING</span><i>•</i><span>OBSERVATION</span><i>•</i><span>CREATIVITY</span><i>•</i><span>RE-INTERPRETATION</span><i>•</i>
+  </div>
+</div>
+
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">BRAND PHILOSOPHY</p>
+      <h2>결과물보다 '과정'을 중시합니다</h2>
+      <p class="lead">관찰 → 이해 → 재해석 → 표현 → 발표. GOMA는 정답을 강요하지 않고, 아이의 개성과 자유로운 표현을 존중합니다.</p>
+    </div>
+    <div class="value-grid">
+      <article class="value-card"><span class="value-num">01</span><h3>사고력 중심</h3><p>단순 따라 그리기(모작)를 지양하고, 작가의 철학을 이해한 뒤 나만의 시각으로 재해석합니다.</p></article>
+      <article class="value-card"><span class="value-num">02</span><h3>창의력 존중</h3><p>정답을 강요하지 않습니다. 아이가 작품의 주체가 되어 자유롭게 표현하도록 이끕니다.</p></article>
+      <article class="value-card"><span class="value-num">03</span><h3>관찰의 힘</h3><p>드로잉을 기반으로 대상을 관찰하고 이해하는 힘을 길러 깊이 있는 작품을 완성합니다.</p></article>
+      <article class="value-card"><span class="value-num">04</span><h3>프리미엄 공간</h3><p>갤러리 같은 아뜰리에식 스튜디오에서 몰입도 높은 수업을 경험합니다.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section director" id="director">
+  <div class="container director-inner">
+    <div class="director-photo"><div class="photo-frame"><span class="photo-label">SVA · Fine Arts</span></div></div>
+    <div class="director-text">
+      <p class="eyebrow">DIRECTOR</p>
+      <h2>뉴욕 3대 미대 전원 합격,<br />원장이 직접 가르칩니다</h2>
+      <ul class="director-list">
+        <li>미국에서 고등학교·대학교 졸업, 맨해튼 약 8년 거주</li>
+        <li><strong>뉴욕 3대 미대(Pratt · Parsons · SVA) 전원 합격</strong> → SVA 진학 (Fine Arts 전공)</li>
+        <li>한국·미국 미술 강의 경력 10년 이상</li>
+        <li>미국 내 미술 대회·공모전 다수 수상</li>
+        <li>영어미술반 직강 (Only English)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section tracks" id="tracks">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">CLASS TRACKS</p><h2>아이 성향에 맞춘 3가지 트랙</h2></div>
+    <div class="track-grid">
+      <article class="track-card">
+        <div class="track-top"><span class="track-tag">일반미술</span><span class="track-time">주 1회 · 80분</span></div>
+        <h3>일반미술 트랙</h3>
+        <p>한국어로 진행하는 드로잉 중심 수업. 다양한 재료를 활용해 1회 1작품을 완성합니다.</p>
+        <ul><li>한국어 진행</li><li>드로잉 중심 + 다양한 재료</li><li>작품 1회 1완성</li></ul>
+      </article>
+      <article class="track-card featured">
+        <div class="track-top"><span class="track-tag">영어미술</span><span class="track-time">주 1회 · 90분</span></div>
+        <h3>영어미술 트랙</h3>
+        <p>100% English로 주제 학습부터 재료 설명, 작품 프레젠테이션까지. 국제학교 학생이 다수 재원합니다.</p>
+        <ul><li>Only English 진행</li><li>영어 프레젠테이션 발표</li><li>채드윅·CMIS 등 국제학교 학생</li><li>최대 4명 정원</li></ul>
+      </article>
+      <article class="track-card">
+        <div class="track-top"><span class="track-tag">유학·입시</span><span class="track-time">중·고등 대상</span></div>
+        <h3>유학미술 / 포트폴리오</h3>
+        <p>미국 미술대학 포트폴리오 준비부터 원서 접수까지 전 과정을 지원합니다.</p>
+        <ul><li>포트폴리오 제작</li><li>Art EC · 레쥬메 · 에세이 컨설팅</li><li>원서 접수까지 전 과정 지원</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section system">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">OPERATING SYSTEM</p><h2>소수정예 · 1:1 맞춤 운영</h2></div>
+    <div class="system-grid">
+      <div class="system-item"><h3>소수정예</h3><p>일반/아동 최대 5명, 영어미술반 최대 4명. 원장이 직접 강의합니다.</p></div>
+      <div class="system-item"><h3>1:1 맞춤 피드백</h3><p>수업 후 카카오톡으로 작업 과정 사진과 상세 코멘트를 전송하고, 대면 피드백을 병행합니다.</p></div>
+      <div class="system-item"><h3>픽업 서비스</h3><p>송도폴리 어학원(도보 4분), 에이프릴 어학원 및 인근 영어유치원·학원 픽업이 가능합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section curriculum" id="curriculum">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">CURRICULUM</p><h2>4가지 프로그램</h2></div>
+    <div class="curri-grid">
+      <article class="curri-card"><span class="curri-no">Program 01</span><h3>정규 프로그램</h3><p>드로잉 중심 기본기와 사고력·개성 표현을 함께 키웁니다.</p></article>
+      <article class="curri-card"><span class="curri-no">Program 02</span><h3>아티스트 프로그램</h3><p>월별로 한 작가를 깊이 탐구합니다. 모네, 라울 뒤피, 데이비드 호크니, 샤갈, 마티스, 로메로 브리토 등.</p></article>
+      <article class="curri-card"><span class="curri-no">Program 03</span><h3>아트&컬쳐 프로그램</h3><p>글로벌 미술과 문화를 폭넓게 경험합니다.</p></article>
+      <article class="curri-card"><span class="curri-no">Program 04</span><h3>드로잉 / 포트폴리오</h3><p>기초 드로잉 → 소묘 → 입시 포트폴리오 심화로 단계별 성장을 돕습니다.</p></article>
+    </div>
+    <div class="artist-strip">
+      <p class="artist-strip-label">아티스트 프로그램에서 다룬 작가</p>
+      <div class="artist-tags">
+        <span>클로드 모네</span><span>라울 뒤피</span><span>데이비드 호크니</span><span>마르크 샤갈</span>
+        <span>앙리 마티스</span><span>임영숙</span><span>로메로 브리토</span><span>버튼 모리스</span><span>나난</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== Director ===== -->
-  <section class="section director" id="director">
-    <div class="container director-inner">
-      <div class="director-photo">
-        <div class="photo-frame">
-          <span class="photo-label">SVA · Fine Arts</span>
-        </div>
+<section class="section techniques">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">TECHNIQUES &amp; MATERIALS</p><h2>폭넓은 기법과 재료 경험</h2></div>
+    <div class="tech-columns">
+      <div class="tech-col">
+        <h3>드로잉 기법</h3>
+        <ul>
+          <li>5단계 명암 연습 · 소묘</li><li>15분 크로키</li><li>레이어드 기법 (프리즈마 색연필)</li>
+          <li>블렌딩 (오일파스텔 · 파스텔)</li><li>모자이크 / 스테인드글라스</li><li>콜라주 / 타이포그래피</li>
+          <li>입체 조형 (모델링페이스트 · 클레이 · 한지 · 실)</li><li>수채화 번지기 · 소금 기법</li>
+        </ul>
       </div>
-      <div class="director-text">
-        <p class="eyebrow">DIRECTOR</p>
-        <h2>뉴욕 3대 미대 전원 합격,<br />원장이 직접 가르칩니다</h2>
-        <ul class="director-list">
-          <li>미국에서 고등학교·대학교 졸업, 맨해튼 약 8년 거주</li>
-          <li><strong>뉴욕 3대 미대(Pratt · Parsons · SVA) 전원 합격</strong> → SVA 진학 (Fine Arts 전공)</li>
-          <li>한국·미국 미술 강의 경력 10년 이상</li>
-          <li>미국 내 미술 대회·공모전 다수 수상</li>
-          <li>영어미술반 직강 (Only English)</li>
+      <div class="tech-col">
+        <h3>사용 재료</h3>
+        <ul>
+          <li>연필 · 색연필 (프리즈마)</li><li>오일파스텔 · 파스텔</li><li>수채화 · 아크릴 물감</li>
+          <li>모델링 페이스트</li><li>부직포 · 한지 · 크라프트지 · 영자신문</li><li>클레이 · 털실 · 리본</li><li>캔버스</li>
         </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== Tracks ===== -->
-  <section class="section tracks" id="tracks">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">CLASS TRACKS</p>
-        <h2>아이 성향에 맞춘 3가지 트랙</h2>
-      </div>
-      <div class="track-grid">
-        <article class="track-card">
-          <div class="track-top">
-            <span class="track-tag">일반미술</span>
-            <span class="track-time">주 1회 · 80분</span>
-          </div>
-          <h3>일반미술 트랙</h3>
-          <p>한국어로 진행하는 드로잉 중심 수업. 다양한 재료를 활용해 1회 1작품을 완성합니다.</p>
-          <ul>
-            <li>한국어 진행</li>
-            <li>드로잉 중심 + 다양한 재료</li>
-            <li>작품 1회 1완성</li>
-          </ul>
-        </article>
-        <article class="track-card featured">
-          <div class="track-top">
-            <span class="track-tag">영어미술</span>
-            <span class="track-time">주 1회 · 90분</span>
-          </div>
-          <h3>영어미술 트랙</h3>
-          <p>100% English로 주제 학습부터 재료 설명, 작품 프레젠테이션까지. 국제학교 학생이 다수 재원합니다.</p>
-          <ul>
-            <li>Only English 진행</li>
-            <li>영어 프레젠테이션 발표</li>
-            <li>채드윅·CMIS 등 국제학교 학생</li>
-            <li>최대 4명 정원</li>
-          </ul>
-        </article>
-        <article class="track-card">
-          <div class="track-top">
-            <span class="track-tag">유학·입시</span>
-            <span class="track-time">중·고등 대상</span>
-          </div>
-          <h3>유학미술 / 포트폴리오</h3>
-          <p>미국 미술대학 포트폴리오 준비부터 원서 접수까지 전 과정을 지원합니다.</p>
-          <ul>
-            <li>포트폴리오 제작</li>
-            <li>Art EC · 레쥬메 · 에세이 컨설팅</li>
-            <li>원서 접수까지 전 과정 지원</li>
-          </ul>
-        </article>
-      </div>
+<section class="section results" id="results">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">ADMISSIONS</p><h2>유학미술 합격 실적</h2></div>
+    <div class="result-grid">
+      <div class="result-card"><h3>School of Visual Arts</h3><p>SVA 합격</p></div>
+      <div class="result-card"><h3>Art Center<br />College of Design</h3><p>합격</p></div>
+      <div class="result-card"><h3>Ringling College<br />of Art and Design</h3><p>합격 · 장학금 $68,000 (Game Art)</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== System ===== -->
-  <section class="section system">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">OPERATING SYSTEM</p>
-        <h2>소수정예 · 1:1 맞춤 운영</h2>
+<section class="section target">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">WHO WE TEACH</p><h2>대상 연령 &amp; 재원 학교</h2></div>
+    <div class="target-wrap">
+      <div class="target-ages">
+        <div class="age-item"><span>유아부</span><strong>5~6세</strong></div>
+        <div class="age-item"><span>아동부</span><strong>초등 전 학년</strong></div>
+        <div class="age-item"><span>청소년부</span><strong>중학생</strong></div>
+        <div class="age-item"><span>유학미술</span><strong>중·고등</strong></div>
       </div>
-      <div class="system-grid">
-        <div class="system-item">
-          <h3>소수정예</h3>
-          <p>일반/아동 최대 5명, 영어미술반 최대 4명. 원장이 직접 강의합니다.</p>
-        </div>
-        <div class="system-item">
-          <h3>1:1 맞춤 피드백</h3>
-          <p>수업 후 카카오톡으로 작업 과정 사진과 상세 코멘트를 전송하고, 대면 피드백을 병행합니다.</p>
-        </div>
-        <div class="system-item">
-          <h3>픽업 서비스</h3>
-          <p>송도폴리 어학원(도보 4분), 에이프릴 어학원 및 인근 영어유치원·학원 픽업이 가능합니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Curriculum ===== -->
-  <section class="section curriculum" id="curriculum">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">CURRICULUM</p>
-        <h2>4가지 프로그램</h2>
-      </div>
-      <div class="curri-grid">
-        <article class="curri-card">
-          <span class="curri-no">Program 01</span>
-          <h3>정규 프로그램</h3>
-          <p>드로잉 중심 기본기와 사고력·개성 표현을 함께 키웁니다.</p>
-        </article>
-        <article class="curri-card">
-          <span class="curri-no">Program 02</span>
-          <h3>아티스트 프로그램</h3>
-          <p>월별로 한 작가를 깊이 탐구합니다. 모네, 라울 뒤피, 데이비드 호크니, 샤갈, 마티스, 로메로 브리토 등.</p>
-        </article>
-        <article class="curri-card">
-          <span class="curri-no">Program 03</span>
-          <h3>아트&컬쳐 프로그램</h3>
-          <p>글로벌 미술과 문화를 폭넓게 경험합니다.</p>
-        </article>
-        <article class="curri-card">
-          <span class="curri-no">Program 04</span>
-          <h3>드로잉 / 포트폴리오</h3>
-          <p>기초 드로잉 → 소묘 → 입시 포트폴리오 심화로 단계별 성장을 돕습니다.</p>
-        </article>
-      </div>
-
-      <div class="artist-strip">
-        <p class="artist-strip-label">아티스트 프로그램에서 다룬 작가</p>
+      <div class="target-schools">
+        <p class="artist-strip-label">주요 재원 학교</p>
         <div class="artist-tags">
-          <span>클로드 모네</span><span>라울 뒤피</span><span>데이비드 호크니</span><span>마르크 샤갈</span>
-          <span>앙리 마티스</span><span>임영숙</span><span>로메로 브리토</span><span>버튼 모리스</span><span>나난</span>
+          <span>채드윅 국제학교</span><span>CMIS</span><span>SJA</span><span>Troy 국제학교</span>
+          <span>브랭섬홀아시아</span><span>청라 달튼 외국인학교</span><span>송도폴리어학원</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== Techniques ===== -->
-  <section class="section techniques">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">TECHNIQUES & MATERIALS</p>
-        <h2>폭넓은 기법과 재료 경험</h2>
-      </div>
-      <div class="tech-columns">
-        <div class="tech-col">
-          <h3>드로잉 기법</h3>
-          <ul>
-            <li>5단계 명암 연습 · 소묘</li>
-            <li>15분 크로키</li>
-            <li>레이어드 기법 (프리즈마 색연필)</li>
-            <li>블렌딩 (오일파스텔 · 파스텔)</li>
-            <li>모자이크 / 스테인드글라스</li>
-            <li>콜라주 / 타이포그래피</li>
-            <li>입체 조형 (모델링페이스트 · 클레이 · 한지 · 실)</li>
-            <li>수채화 번지기 · 소금 기법</li>
-          </ul>
-        </div>
-        <div class="tech-col">
-          <h3>사용 재료</h3>
-          <ul>
-            <li>연필 · 색연필 (프리즈마)</li>
-            <li>오일파스텔 · 파스텔</li>
-            <li>수채화 · 아크릴 물감</li>
-            <li>모델링 페이스트</li>
-            <li>부직포 · 한지 · 크라프트지 · 영자신문</li>
-            <li>클레이 · 털실 · 리본</li>
-            <li>캔버스</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Results ===== -->
-  <section class="section results" id="results">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">ADMISSIONS</p>
-        <h2>유학미술 합격 실적</h2>
-      </div>
-      <div class="result-grid">
-        <div class="result-card">
-          <h3>School of Visual Arts</h3>
-          <p>SVA 합격</p>
-        </div>
-        <div class="result-card">
-          <h3>Art Center<br />College of Design</h3>
-          <p>합격</p>
-        </div>
-        <div class="result-card">
-          <h3>Ringling College<br />of Art and Design</h3>
-          <p>합격 · 장학금 $68,000 (Game Art)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Target & Schools ===== -->
-  <section class="section target">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">WHO WE TEACH</p>
-        <h2>대상 연령 & 재원 학교</h2>
-      </div>
-      <div class="target-wrap">
-        <div class="target-ages">
-          <div class="age-item"><span>유아부</span><strong>5~6세</strong></div>
-          <div class="age-item"><span>아동부</span><strong>초등 전 학년</strong></div>
-          <div class="age-item"><span>청소년부</span><strong>중학생</strong></div>
-          <div class="age-item"><span>유학미술</span><strong>중·고등</strong></div>
-        </div>
-        <div class="target-schools">
-          <p class="artist-strip-label">주요 재원 학교</p>
-          <div class="artist-tags">
-            <span>채드윅 국제학교</span><span>CMIS</span><span>SJA</span><span>Troy 국제학교</span>
-            <span>브랭섬홀아시아</span><span>청라 달튼 외국인학교</span><span>송도폴리어학원</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Trial / CTA ===== -->
-  <section class="section trial" id="trial">
-    <div class="container trial-inner">
-      <div class="trial-text">
-        <p class="eyebrow light">TRIAL CLASS</p>
-        <h2>원데이클래스, 상시 운영</h2>
-        <p class="lead light">
-          단순 만들기 체험이 아닌, 정규반과 동일한 커리큘럼을 그대로 경험합니다.
-          아이의 성향을 파악하고 학원 적응도를 확인한 뒤 정규 등록을 결정하세요.
-        </p>
-        <ul class="trial-list">
-          <li>정규반과 동일한 실제 수업</li>
-          <li>평일 오후 3:00 / 4:30 등 다양한 타임</li>
-          <li>신규 반 유연하게 개설 · 인기 타임 대기 가능</li>
-          <li>상담 방문 시 무료 주차</li>
-        </ul>
-        <div class="hero-actions">
-          <a href="tel:01073736072" class="btn btn-primary">전화 상담 010-7373-6072</a>
-          <a href="https://naver.me/5ssZl0y0" target="_blank" rel="noopener" class="btn btn-line">네이버 예약·문의</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer" id="contact">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="#hero" class="logo logo-light">GOMA<span>ART CLASS</span></a>
-        <p>드로잉 중점 프리미엄 미술학원</p>
-      </div>
-      <div class="footer-info">
-        <dl>
-          <dt>학원명</dt><dd>GOMA 아트클래스 (고마아트클래스)</dd>
-          <dt>위치</dt><dd>인천광역시 연수구 해돋이로172번길 42, 301호 (송도 1공구)</dd>
-          <dt>전화</dt><dd><a href="tel:01073736072">010-7373-6072</a></dd>
-          <dt>주차</dt><dd>상담 방문 시 무료 주차 가능</dd>
-        </dl>
-        <div class="footer-links">
-          <a href="https://naver.me/5ssZl0y0" target="_blank" rel="noopener">네이버 플레이스</a>
-          <a href="https://blog.naver.com/goma_songdo_" target="_blank" rel="noopener">네이버 블로그</a>
-          <a href="https://www.instagram.com/goma_songdo_" target="_blank" rel="noopener">인스타그램</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copy">© 2026 GOMA ART CLASS. All rights reserved.</div>
-  </footer>
-
-  <!-- ===== Right Floating Banners (4개) ===== -->
-  <div class="floating-side" id="floatingSide" aria-label="바로가기">
-    <a class="float-btn float-place" href="https://naver.me/5ssZl0y0" target="_blank" rel="noopener">
-      <span class="float-ico">N</span>
-      <span class="float-label">플레이스</span>
-    </a>
-    <a class="float-btn float-blog" href="https://blog.naver.com/goma_songdo_" target="_blank" rel="noopener">
-      <span class="float-ico">B</span>
-      <span class="float-label">블로그</span>
-    </a>
-    <a class="float-btn float-insta" href="https://www.instagram.com/goma_songdo_" target="_blank" rel="noopener">
-      <span class="float-ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </span>
-      <span class="float-label">인스타</span>
-    </a>
-    <a class="float-btn float-tel" href="tel:01073736072">
-      <span class="float-ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
-      </span>
-      <span class="float-label">전화문의<small>010-7373-6072</small></span>
-    </a>
-  </div>
-
-  <!-- ===== Bottom Horizontal Floating Banner ===== -->
-  <div class="floating-bottom" id="floatingBottom">
-    <div class="fb-inner">
-      <p class="fb-text">미술 수업이 궁금하신가요? <strong>지금 바로 상담 문의하세요</strong></p>
-      <a class="fb-call" href="tel:01073736072">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
-        전화 연결
-      </a>
     </div>
   </div>
+</section>
 
-  <script src="script.js"></script>
+<section class="section trial" id="trial">
+  <div class="container trial-inner">
+    <div class="trial-text">
+      <p class="eyebrow light">TRIAL CLASS</p>
+      <h2>원데이클래스, 상시 운영</h2>
+      <p class="lead light">단순 만들기 체험이 아닌, 정규반과 동일한 커리큘럼을 그대로 경험합니다. 아이의 성향을 파악하고 학원 적응도를 확인한 뒤 정규 등록을 결정하세요.</p>
+      <ul class="trial-list">
+        <li>정규반과 동일한 실제 수업</li>
+        <li>평일 오후 3:00 / 4:30 등 다양한 타임</li>
+        <li>신규 반 유연하게 개설 · 인기 타임 대기 가능</li>
+        <li>상담 방문 시 무료 주차</li>
+      </ul>
+      <div class="hero-actions">
+        <a href="tel:01073736072" class="btn btn-primary">전화 상담 010-7373-6072</a>
+        <a href="https://naver.me/5ssZl0y0" target="_blank" rel="noopener" class="btn btn-line">네이버 예약·문의</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#hero" class="logo logo-light">GOMA<span>ART CLASS</span></a>
+      <p>드로잉 중점 프리미엄 미술학원</p>
+    </div>
+    <div class="footer-info">
+      <dl>
+        <dt>학원명</dt><dd>GOMA 아트클래스 (고마아트클래스)</dd>
+        <dt>위치</dt><dd>인천광역시 연수구 해돋이로172번길 42, 301호 (송도 1공구)</dd>
+        <dt>전화</dt><dd><a href="tel:01073736072">010-7373-6072</a></dd>
+        <dt>주차</dt><dd>상담 방문 시 무료 주차 가능</dd>
+      </dl>
+      <div class="footer-links">
+        <a href="https://naver.me/5ssZl0y0" target="_blank" rel="noopener">네이버 플레이스</a>
+        <a href="https://blog.naver.com/goma_songdo_" target="_blank" rel="noopener">네이버 블로그</a>
+        <a href="https://www.instagram.com/goma_songdo_" target="_blank" rel="noopener">인스타그램</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 GOMA ART CLASS. All rights reserved.</div>
+</footer>
+
+<div class="floating-side" id="floatingSide" aria-label="바로가기">
+  <a class="float-btn float-place" href="https://naver.me/5ssZl0y0" target="_blank" rel="noopener">
+    <span class="float-ico">N</span><span class="float-label">플레이스</span>
+  </a>
+  <a class="float-btn float-blog" href="https://blog.naver.com/goma_songdo_" target="_blank" rel="noopener">
+    <span class="float-ico">B</span><span class="float-label">블로그</span>
+  </a>
+  <a class="float-btn float-insta" href="https://www.instagram.com/goma_songdo_" target="_blank" rel="noopener">
+    <span class="float-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+    <span class="float-label">인스타</span>
+  </a>
+  <a class="float-btn float-tel" href="tel:01073736072">
+    <span class="float-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg></span>
+    <span class="float-label">전화문의<small>010-7373-6072</small></span>
+  </a>
+</div>
+
+<div class="floating-bottom" id="floatingBottom">
+  <div class="fb-inner">
+    <p class="fb-text">미술 수업이 궁금하신가요? <strong>지금 바로 상담 문의하세요</strong></p>
+    <a class="fb-call" href="tel:01073736072">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+      전화 연결
+    </a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var header = document.getElementById('siteHeader');
+  var bottomBanner = document.getElementById('floatingBottom');
+  var navToggle = document.getElementById('navToggle');
+  var nav = document.getElementById('nav');
+  var hero = document.getElementById('hero');
+
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    header.classList.toggle('scrolled', y > 60);
+    var trigger = hero ? hero.offsetHeight * 0.6 : 400;
+    bottomBanner.classList.toggle('show', y > trigger);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  navToggle.addEventListener('click', function () { nav.classList.toggle('open'); });
+  Array.prototype.forEach.call(nav.querySelectorAll('a'), function (link) {
+    link.addEventListener('click', function () { nav.classList.remove('open'); });
+  });
+
+  var revealEls = document.querySelectorAll('.value-card,.track-card,.system-item,.curri-card,.result-card,.tech-col,.age-item,.section-head');
+  if ('IntersectionObserver' in window) {
+    Array.prototype.forEach.call(revealEls, function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    Array.prototype.forEach.call(revealEls, function (el) { io.observe(el); });
+  }
+})();
+</script>
 </body>
 </html>
